@@ -925,25 +925,11 @@ async def perfil(ctx, member: discord.Member = None):
             draw.line([(0, i), (largura, i)], fill=cor)
 
     draw = ImageDraw.Draw(imagem)
-
-# Caminho relativo para a fonte Arial no projeto
+    # Fontes
+    # Caminho relativo para a fonte Arial no projeto
     fonte_titulo = ImageFont.truetype("assets/fonts/arial.ttf", 40)
     fonte_texto = ImageFont.truetype("assets/fonts/arial.ttf", 30)
     fonte_destaque = ImageFont.truetype("assets/fonts/arial.ttf", 35)
-
-# Função para desenhar texto maior
-    def draw_text(draw, position, text, font, fill, scale=2):
-        x, y = position
-        for offset_x in range(scale):
-            for offset_y in range(scale):
-                draw.text((x + offset_x, y + offset_y), text, font=font, fill=fill)
-
-# Exemplo de uso no desenho do texto
-    draw_text(draw, (30, 30), f"Perfil de {member.name}", fonte_titulo, (255, 255, 255), scale=2)
-    draw_text(draw, (30, 120), f"Nível: {nivel}", fonte_destaque, (255, 215, 0), scale=2)
-    draw_text(draw, (30, 180), f"EXP: {exp}/{exp_para_proximo_nivel}", fonte_texto, (255, 255, 255), scale=2)
-    draw_text(draw, (30, 240), f"Emprego: {emprego}", fonte_texto, (255, 255, 255), scale=2)
-    draw_text(draw, (30, 300), f"Status: {status_casamento}", fonte_texto, (255, 255, 255), scale=2)
 
     # Adiciona o título
     draw.text((30, 30), f"Perfil de {member.name}", font=fonte_titulo, fill=(255, 255, 255))
